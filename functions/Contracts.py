@@ -15,6 +15,9 @@ MeditationCircleABI = json.load(MeditationCircleJson)
 SummonJson = open("abi/Summon.json")
 SummonABI = json.load(SummonJson)
 
+CrystalJson = open("abi/Crystal.json")
+CrystalABI = json.load(CrystalJson)
+
 quest_core_address = {
     "dfk": "0xE9AbfBC143d7cef74b5b793ec5907fa62ca53154",
     "kla": "0x8dc58d6327E1f65b18B82EDFb01A361f3AAEf624"
@@ -40,6 +43,11 @@ summon_address = {
     "kla": "0xb086584f476Ad21B40aF0672f385a67334A0b294"
 }
 
+crystal_address = {
+    "dfk": "0x68f6C64786cfCb35108986041D1009c9d27bde22",
+    "kla": "0x13cE9c99E8E2fcDe1632adA7B69b2eCf5BE8ED45"
+}
+
 
 def getQuestCore(w3, network):
     return w3.eth.contract(
@@ -63,4 +71,9 @@ def getHeroRent(w3, network):
 def getSummon(w3, network):
     return w3.eth.contract(
         address=summon_address[network], abi=SummonABI
+    )
+
+def getCrystal(w3, network):
+    return w3.eth.contract(
+        address=crystal_address[network], abi=CrystalABI
     )
